@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CourseProject.DataLayer.EfClasses;
+using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.DataLayer.EfCode
 {
@@ -9,5 +10,9 @@ namespace CourseProject.DataLayer.EfCode
         {
 
         }
+
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -10,4 +10,12 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EfClasses\Doc\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CourseProject.Core\CourseProject.Core.csproj" />
+  </ItemGroup>
+
 </Project>
