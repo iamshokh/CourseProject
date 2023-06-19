@@ -9,6 +9,13 @@
   <ItemGroup>
     <PackageReference Include="AzureExtensions.Swashbuckle" Version="3.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CourseProject.BizLogicLayer\CourseProject.BizLogicLayer.csproj" />
+    <ProjectReference Include="..\CourseProject.DataLayer\CourseProject.DataLayer.csproj" />
+    <ProjectReference Include="..\DataLayer.PgSql\CourseProject.DataLayer.PgSql.csproj" />
   </ItemGroup>
 
 </Project>

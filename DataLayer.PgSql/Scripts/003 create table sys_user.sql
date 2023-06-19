@@ -9,7 +9,7 @@ create table sys_user
  	shortname      			varchar(260) NOT NULL,
  	fullname       			varchar(500) NOT NULL,
 	last_access_time		timestamp without time zone null,
-	state_id				int not null,
+	state_id				int not null default 1,
 	created_date			timestamp without time zone default now() not null,
 	created_user_id			int null,
 	modified_date			timestamp without time zone,
