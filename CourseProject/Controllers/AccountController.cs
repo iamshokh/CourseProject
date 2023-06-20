@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CourseProject.WebApi.Controllers
 {
-    [Route("[controller]/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class AccountController : ControllerBase
     {

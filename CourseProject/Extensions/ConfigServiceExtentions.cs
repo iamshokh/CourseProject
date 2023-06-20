@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddSingleton(AppSettings.Instance.Database);
             services.AddSingleton(AppSettings.Instance.Jwt);
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }
 }
