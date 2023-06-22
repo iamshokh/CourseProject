@@ -17,7 +17,7 @@ namespace CourseProject.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp([FromBody] RegistrateUserDlDto dto)
+        public async Task<IActionResult> Registrate([FromBody] RegistrateUserDlDto dto)
         {
             if (ModelState.IsValid)
             {
@@ -33,7 +33,7 @@ namespace CourseProject.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignIn([FromBody] LoginDto dto)
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             if (ModelState.IsValid)
             {

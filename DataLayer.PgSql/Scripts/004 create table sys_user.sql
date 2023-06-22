@@ -9,13 +9,15 @@ create table sys_user
  	shortname      			varchar(260) NOT NULL,
  	fullname       			varchar(500) NOT NULL,
 	last_access_time		timestamp without time zone null,
-	state_id				int not null default 1,
+	state_id				int not null,
+	role_id					int not null,
 	created_date			timestamp without time zone default now() not null,
 	created_user_id			int null,
 	modified_date			timestamp without time zone,
 	modified_user_id		int,
 
-	constraint fk_state_id					foreign key ( state_id )				references enum_state ( id )
+	constraint fk_state_id foreign key ( state_id ) references enum_state ( id ),
+	constraint fk_role_id foreign key ( role_id ) references sys_role ( id )
 );
 
 create unique index sys_user_unique_index_user_name on sys_user (user_name);

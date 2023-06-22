@@ -48,6 +48,9 @@ public partial class SysUser
     [Column("state_id")]
     public int StateId { get; set; }
 
+    [Column("role_id")]
+    public int RoleId { get; set; }
+
     [Column("created_date", TypeName = "timestamp without time zone")]
     public DateTime CreatedDate { get; set; }
 
@@ -59,6 +62,10 @@ public partial class SysUser
 
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
+
+    [ForeignKey("RoleId")]
+    [InverseProperty("SysUsers")]
+    public virtual SysRole Role { get; set; } = null!;
 
     [ForeignKey("StateId")]
     [InverseProperty("SysUsers")]

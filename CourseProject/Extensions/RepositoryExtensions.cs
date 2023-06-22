@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static void ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<IAccountRepository, AccountRepository>();
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICollectionsRepository, CollectionsRepository>();
         }
     }
 }

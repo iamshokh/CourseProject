@@ -13,6 +13,9 @@ namespace CourseProject.DataLayer.EfCode
 
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Collections> Collections { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
     }
 }

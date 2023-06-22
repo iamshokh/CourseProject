@@ -1,11 +1,6 @@
 ﻿using CourseProject.Core.Security;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CourseProject.DataLayer.EfClasses
 {
@@ -48,6 +43,8 @@ namespace CourseProject.DataLayer.EfClasses
 
         [Column("state_id")]
         public int StateId { get; set; }
+        [Column("role_id")]
+        public int RoleId { get; set; }
 
         [Column("created_date", TypeName = "timestamp without time zone")]
         public DateTime CreatedDate { get; set; }
@@ -63,6 +60,8 @@ namespace CourseProject.DataLayer.EfClasses
 
         [ForeignKey(nameof(StateId))]
         public virtual State State { get; set; } = null!;
+        [ForeignKey(nameof(RoleId))]
+        public virtual Role Role { get; set; } = null!;
 
         public bool IsValidPassword(string password)
         {
