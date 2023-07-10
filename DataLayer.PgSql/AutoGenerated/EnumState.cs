@@ -35,6 +35,12 @@ public partial class EnumState
     public virtual ICollection<DocItem> DocItems { get; } = new List<DocItem>();
 
     [InverseProperty("State")]
+    public virtual ICollection<EnumComment> EnumComments { get; } = new List<EnumComment>();
+
+    [InverseProperty("State")]
+    public virtual ICollection<EnumLike> EnumLikes { get; } = new List<EnumLike>();
+
+    [InverseProperty("State")]
     public virtual ICollection<SysRole> SysRoles { get; } = new List<SysRole>();
 
     [InverseProperty("State")]

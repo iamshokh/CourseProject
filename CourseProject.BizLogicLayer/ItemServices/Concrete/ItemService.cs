@@ -1,42 +1,42 @@
 ﻿using CourseProject.DataLayer.EfClasses;
 using CourseProject.DataLayer.Repositories;
-using CourseProject.DataLayer.Repositories.Collection;
+using CourseProject.DataLayer.Repositories.Item;
 using StatusGeneric;
 
-namespace CourseProject.BizLogicLayer.CollectionServices
+namespace CourseProject.BizLogicLayer.ItemServices
 {
-    public class CollectionsService : StatusGenericHandler, ICollectionsService
+    public class ItemService : StatusGenericHandler, IItemService
     {
-        private readonly ICollectionsRepository _repository;
+        private readonly IItemRepository _repository;
 
-        public CollectionsService(
-            ICollectionsRepository repository
+        public ItemService(
+            IItemRepository repository
             )
         {
             _repository = repository;
         }
 
-        public IQueryable<Collections> GetAll()
+        public IQueryable<Item> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public Collections GetById(int id)
+        public Item GetById(int id)
         {
             var result = _repository.GetById(id);
             return result;
         }
 
-        public void Create(CollectionsDlDto dto)
+        public void Create(ItemDlDto dto)
         {
-            _repository.CreateCollection(dto);
+            _repository.CreateItem(dto);
             if (IsValid)
                 _repository.Save();
         }
 
-        public void Update(CollectionsDlDto dto)
+        public void Update(ItemDlDto dto)
         {
-            _repository.CreateCollection(dto);
+            _repository.CreateItem(dto);
             if (IsValid)
                 _repository.Save();
         }

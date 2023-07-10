@@ -1,6 +1,6 @@
 ﻿using CourseProject.BizLogicLayer.AccountServices;
 using CourseProject.BizLogicLayer.CollectionServices;
-using CourseProject.DataLayer.EfCode;
+using CourseProject.BizLogicLayer.ItemServices;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -10,6 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ICollectionsService, CollectionsService>();
+            services.AddScoped<IItemService, ItemService>();
         }
     }
 }

@@ -8,27 +8,18 @@ using System.Threading.Tasks;
 
 namespace CourseProject.DataLayer.EfClasses
 {
-    [Table("doc_item")]
-    public partial class Item
+    [Table("enum_like")]
+    public partial class Like
     {
         [Key]
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("full_name")]
-        [StringLength(250)]
-        public string FullName { get; set; } = null!;
+        [Column("item_id")]
+        public int ItemId { get; set; }
 
-        [Column("image_url")]
-        [StringLength(250)]
-        public string ImageUrl { get; set; } = null!;
-
-        [Column("collection_id")]
-        public int CollectionId { get; set; }
-
-        [Column("details")]
-        [StringLength(1000)]
-        public string Details { get; set; } = null!;
+        [Column("user_id")]
+        public int UserId { get; set; }
 
         [Column("state_id")]
         public int StateId { get; set; }
@@ -45,10 +36,13 @@ namespace CourseProject.DataLayer.EfClasses
         [Column("modified_user_id")]
         public int? ModifiedUserId { get; set; }
 
-        [ForeignKey(nameof(CollectionId))]
-        public virtual Collections Collection { get; set; } = null!;
+        [ForeignKey(nameof(ItemId))]
+        public virtual Item Item { get; set; } = null!;
 
         [ForeignKey(nameof(StateId))]
         public virtual State State { get; set; } = null!;
+
+        [ForeignKey(nameof(UserId))]
+        public virtual User User { get; set; } = null!;
     }
 }

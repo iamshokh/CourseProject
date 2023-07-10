@@ -19,7 +19,11 @@ public partial class CourseProjectContext : DbContext
 
     public virtual DbSet<DocItem> DocItems { get; set; }
 
+    public virtual DbSet<EnumComment> EnumComments { get; set; }
+
     public virtual DbSet<EnumLanguage> EnumLanguages { get; set; }
+
+    public virtual DbSet<EnumLike> EnumLikes { get; set; }
 
     public virtual DbSet<EnumState> EnumStates { get; set; }
 
@@ -59,12 +63,50 @@ public partial class CourseProjectContext : DbContext
                 .HasConstraintName("fk_state_id");
         });
 
+        modelBuilder.Entity<EnumComment>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("enum_comment_pkey");
+
+            entity.Property(e => e.CreatedDate).HasDefaultValueSql("now()");
+
+            entity.HasOne(d => d.Item).WithMany(p => p.EnumComments)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_item_id");
+
+            entity.HasOne(d => d.State).WithMany(p => p.EnumComments)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_state_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.EnumComments)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_user_id");
+        });
+
         modelBuilder.Entity<EnumLanguage>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("enum_language_pkey");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedDate).HasDefaultValueSql("now()");
+        });
+
+        modelBuilder.Entity<EnumLike>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("enum_like_pkey");
+
+            entity.Property(e => e.CreatedDate).HasDefaultValueSql("now()");
+
+            entity.HasOne(d => d.Item).WithMany(p => p.EnumLikes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_item_id");
+
+            entity.HasOne(d => d.State).WithMany(p => p.EnumLikes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_state_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.EnumLikes)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_user_id");
         });
 
         modelBuilder.Entity<EnumState>(entity =>

@@ -8,6 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<ICollectionsRepository, CollectionsRepository>();
+            services.AddScoped<IItemRepository, ItemRepository>();
         }
     }
 }

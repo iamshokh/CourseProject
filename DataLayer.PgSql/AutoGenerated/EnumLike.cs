@@ -6,27 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CourseProject.DataLayer.PgSql;
 
-[Table("doc_item")]
-public partial class DocItem
+[Table("enum_like")]
+public partial class EnumLike
 {
     [Key]
     [Column("id")]
     public int Id { get; set; }
 
-    [Column("full_name")]
-    [StringLength(250)]
-    public string FullName { get; set; } = null!;
+    [Column("item_id")]
+    public int ItemId { get; set; }
 
-    [Column("image_url")]
-    [StringLength(250)]
-    public string ImageUrl { get; set; } = null!;
-
-    [Column("collection_id")]
-    public int CollectionId { get; set; }
-
-    [Column("details")]
-    [StringLength(1000)]
-    public string Details { get; set; } = null!;
+    [Column("user_id")]
+    public int UserId { get; set; }
 
     [Column("state_id")]
     public int StateId { get; set; }
@@ -43,17 +34,15 @@ public partial class DocItem
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
 
-    [ForeignKey("CollectionId")]
-    [InverseProperty("DocItems")]
-    public virtual DocCollection Collection { get; set; } = null!;
-
-    [InverseProperty("Item")]
-    public virtual ICollection<EnumComment> EnumComments { get; } = new List<EnumComment>();
-
-    [InverseProperty("Item")]
-    public virtual ICollection<EnumLike> EnumLikes { get; } = new List<EnumLike>();
+    [ForeignKey("ItemId")]
+    [InverseProperty("EnumLikes")]
+    public virtual DocItem Item { get; set; } = null!;
 
     [ForeignKey("StateId")]
-    [InverseProperty("DocItems")]
+    [InverseProperty("EnumLikes")]
     public virtual EnumState State { get; set; } = null!;
+
+    [ForeignKey("UserId")]
+    [InverseProperty("EnumLikes")]
+    public virtual SysUser User { get; set; } = null!;
 }

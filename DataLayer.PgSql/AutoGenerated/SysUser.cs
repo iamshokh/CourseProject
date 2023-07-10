@@ -63,6 +63,12 @@ public partial class SysUser
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
 
+    [InverseProperty("User")]
+    public virtual ICollection<EnumComment> EnumComments { get; } = new List<EnumComment>();
+
+    [InverseProperty("User")]
+    public virtual ICollection<EnumLike> EnumLikes { get; } = new List<EnumLike>();
+
     [ForeignKey("RoleId")]
     [InverseProperty("SysUsers")]
     public virtual SysRole Role { get; set; } = null!;

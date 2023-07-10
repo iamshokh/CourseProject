@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CourseProject.DataLayer.EfClasses
 {
     [Table("doc_collection")]
-    public class Collections
+    public partial class Collections
     {
         [Key]
         [Column("id")]
