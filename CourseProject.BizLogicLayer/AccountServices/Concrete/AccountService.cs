@@ -121,6 +121,7 @@ namespace CourseProject.BizLogicLayer.AccountServices
                     AddError("Ошибка при Регистрации");
                     return null;
                 }
+                context.Add(user);
                 context.SaveChanges();
                 string result = await AuthenticateAsync(dto.UserName, dto.Password);
                 return result;

@@ -1,9 +1,12 @@
 ﻿using CourseProject.Core.Security;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CourseProject.DataLayer.EfClasses
 {
+    [Table("sys_user")]
+    [Index("UserName", Name = "sys_user_unique_index_user_name", IsUnique = true)]
     public partial class User
     {
         [Key]
