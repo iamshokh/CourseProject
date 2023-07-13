@@ -1,4 +1,5 @@
-﻿using CourseProject.Core.Security;
+﻿using CourseProject.Core;
+using CourseProject.Core.Security;
 using CourseProject.DataLayer.EfClasses;
 using CourseProject.DataLayer.EfCode;
 using CourseProject.DataLayer.Repositories.Account;
@@ -39,6 +40,8 @@ namespace CourseProject.DataLayer.Repositories
             entity.Email = dto.Email;
             entity.Fullname = dto.Fullname;
             entity.Shortname = dto.Shortname;
+            entity.StateId = StateIdConst.ACTIVE;
+            entity.RoleId = RoleIdConst.USER;
             entity.PasswordSalt = PasswordHasher.GenerateSalt();
             entity.PasswordHash = PasswordHasher.GenerateHash(dto.Password, entity.PasswordSalt);
 
